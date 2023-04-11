@@ -1,0 +1,226 @@
+:root{
+    --arrow-and-Input-col: hsl(259, 100%, 65%);
+    --input__Error: hsl(0, 100%, 67%);
+    --body-Background: hsl(0, 0%, 100%);
+    --select-inp__Background: hsl(0, 0%, 94%);
+    --Lightgrey: hsl(0, 0%, 86%);
+    --placeHolder-color: hsl(0, 1%, 44%);
+    --inp-Result__Arrow__Color: hsl(0, 0%, 8%);
+}
+*,
+*:before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: var(--body-Background);
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.main-body{
+    
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-top: 25px;
+    position: relative;
+    min-height: 50vh ;
+    justify-content: center;
+    
+   
+
+}
+
+/* User Input Styling */
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    
+}
+
+label{
+    color: var(--placeHolder-color);
+    font-weight: 400;
+    font-size: .9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.input-field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding-left: 20px;
+    
+    
+}
+.user-input{
+    display: flex;
+    flex-direction: column;
+
+    gap: 1em;
+    width: 13.5%;
+    position:relative;
+    
+    
+}
+
+.user-input > input {
+    font-size: 18px;
+    
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Arrow Styling */
+#arrow-btn{
+    background: var(--arrow-and-Input-col);
+    border-radius: 100%;
+    border: none;
+    transition: background 0.2s ease-in;
+    display: flex;
+    
+    
+    
+}
+
+#down-arrow{
+    height: 60px;
+    width: auto;
+    transform: scale(.5);
+    border: none;
+}
+#arrow-btn:hover{
+        box-shadow: 0 2px 12px var(--arrow-and-Input-col);
+    }
+#arrow-btn:active{
+        box-shadow: 0 2px 12px var(--inp-Result__Arrow__Color);
+    }
+
+#arrow-btn:active{
+    background-color: var(--inp-Result__Arrow__Color);
+}
+g{
+    
+    stroke-width: 4px;
+}
+
+/* Input result styling */
+.inp-container{
+    text-transform: lowercase;
+    font-weight: 800;
+    font-size: 3em;
+    font-style: italic;
+    display: flex;
+    gap: 13px;
+    justify-content: center;
+    line-height: 100%;
+    padding: 10px 0;
+}
+
+
+.fa-circle-exclamation{
+    color: var(--input__Error);
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+    display: none;
+    
+}
+.onError{
+    border: 2px solid var(--input__Error) !important;
+
+    
+}
+#error2, #error ,#error3{
+    position: absolute;
+    width: 100%;
+    color: var(--input__Error);
+
+    
+    display: none;
+}
+#error{
+    top: -70px;
+    right: 0;
+}
+#error2{
+    top: -70px;
+}
+#error3{
+    top: -70px;
+    left: 0;
+}
+.error{
+    
+    display: block !important;
+}
+/* Animation on success */
+.success {
+    animation: rightInput 1s ease-in;
+    animation-fill-mode: forwards !important;
+    
+}
+.animation-2{
+    animation: scaleFast 1s ease-in;
+
+}
+
+@keyframes rightInput {
+    0% {
+        
+        transform: scale(.3);
+        
+        transform: translateX(-790%);
+    }
+
+    100% {
+        opacity: 1;
+        color: var(--arrow-and-Input-col);
+        filter: hue-rotate(360deg);
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleFast {
+    0%{
+        opacity: 0.5;
+        transform: scale(0.4);
+    }
+    50%{
+        transform: scale(.8);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        
+    }
+}
+
+@media (min-width:768px) {
+    .main-body{
+        max-width: 868px;
+    }
+        .user-input {
+            
+            width: 25%;
+            gap: 1em;
+    
+    
+        }
+    #form> :nth-child(2) {
+            align-self: end;
+        }
+}
